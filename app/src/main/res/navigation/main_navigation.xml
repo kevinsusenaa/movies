@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:startDestination="@id/splashFragment">
+
+    <fragment
+        android:id="@+id/splashFragment"
+        android:name="com.example.movie.ui.splash.SplashFragment"
+        android:label="fragment_splash"
+        tools:layout="@layout/fragmentsplash" >
+        <action
+            android:id="@+id/actionMain"
+            app:destination="@id/navmovie"
+            app:popUpTo="@id/splashFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navmovie"
+        android:name="com.example.movie.ui.movie.MovieFragment"
+        android:label="@string/nav_movie"
+        tools:layout="@layout/fragmentmovie" >
+        <action
+            android:id="@+id/actionMovieDetail"
+            app:destination="@id/detailFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navtvshow"
+        android:name="com.example.movie.ui.tvshow.TvShowFragment"
+        android:label="@string/nav_tv_show"
+        tools:layout="@layout/fragmenttv_show" >
+        <action
+            android:id="@+id/actionTvDetail"
+            app:destination="@id/detailFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/detailFragment"
+        android:name="com.example.movie.ui.detail.DetailFragment"
+        android:label="fragment_detail"
+        tools:layout="@layout/fragmentdetail" >
+        <argument
+            android:name="movie"
+            app:argType="com.example.moviesapp.model.local.Movie"
+            app:nullable="true" />
+        <argument
+            android:name="tvShow"
+            app:argType="com.example.moviesapp.model.local.TvShow"
+            app:nullable="true" />
+    </fragment>
+</navigation>
